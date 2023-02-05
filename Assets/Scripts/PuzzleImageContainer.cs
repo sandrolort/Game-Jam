@@ -8,6 +8,8 @@ public class PuzzleImageContainer : MonoBehaviour
 {
     [SerializeField] private Transform[] pictures;
     public static bool youWin;
+    public static int Progress;
+    public int id;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class PuzzleImageContainer : MonoBehaviour
         {
             youWin = true;
             print("you won!!");
+            PuzzleChecker.isPuzzleComplete[id] = true;
+            Progress = 16;
         }
     }
 
@@ -32,8 +36,11 @@ public class PuzzleImageContainer : MonoBehaviour
         {
             if (pictures[i].rotation.z > Math.Abs(0.1f))
             {
-                
+
                 print($"False at {i}");
+                //todo fix this
+                Progress = i;
+                
                 return false;
             }
         }
