@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(SceneNumber);
+            print("Loading scene");
         }
     }
 }

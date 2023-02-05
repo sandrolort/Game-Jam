@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleImageContainer : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PuzzleImageContainer : MonoBehaviour
     public static bool youWin;
     public static int Progress;
     public int id;
+    
+    public UnityEvent OnWin;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,9 @@ public class PuzzleImageContainer : MonoBehaviour
             youWin = true;
             print("you won!!");
             PuzzleChecker.isPuzzleComplete[id] = true;
+            OnWin.Invoke();
             Progress = 16;
+            this.enabled = false;
         }
     }
 
