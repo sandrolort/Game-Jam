@@ -28,6 +28,7 @@ public class Movement_SideScroller : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = 0;
     }
 
     // Update is called once per frame
@@ -46,9 +47,9 @@ public class Movement_SideScroller : MonoBehaviour
 
         //If speed is 0, the same direction is kept.
         if(Input.GetAxis("Horizontal")>0)
-            transform.localScale = new Vector3(1,1,1);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
         else if(Input.GetAxis("Horizontal")<0)
-            transform.localScale = new Vector3(-1,1,1);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
 
         //If the player is on the ground and presses the jump button, set the velocity to 5.
         if (Input.GetAxis("Vertical") > 0.5f && _wasGrounded)
@@ -68,8 +69,11 @@ public class Movement_SideScroller : MonoBehaviour
         //If the player is on the ground or on a rko, give the player an ability to jump.
         if (!_wasGrounded)
         {
-            _wasGrounded = Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y / 2, 0),
-                Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"));
+            _wasGrounded = Physics2D.Raycast(transform.position - new Vector3(-0.5f, transform.localScale.y / 2, 0),
+                Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"))
+                ||
+                Physics2D.Raycast(transform.position - new Vector3(0.5f, transform.localScale.y / 2, 0),
+                    Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"));
             if (_wasGrounded)
             {
                 _animator.SetBool("IsJumping", false);
