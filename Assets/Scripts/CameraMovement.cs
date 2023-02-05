@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
     //X corresponds to starting position, Y corresponds to ending position in X coordinates.
     public Vector2 CameraBounds = new Vector2(0, 10);
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(Player.transform.position.x, CameraBounds.x, CameraBounds.y), transform.position.y, transform.position.z), Smoothness);
     }

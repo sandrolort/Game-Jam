@@ -10,9 +10,7 @@ public class BeautifulSceneViewer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            eventHandle.Invoke();
-        }
+        eventHandle.Invoke();
+        print("Loading scene");
     }
 }
