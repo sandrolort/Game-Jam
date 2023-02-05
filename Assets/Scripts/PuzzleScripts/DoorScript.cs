@@ -3,17 +3,23 @@ using UnityEngine.Events;
 
 public class DoorScript : MonoBehaviour
 {
-    public UnityEvent m_tagEvent;
-    public string tag;
     private Animator anim;
+    private Collider2D col;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInParent<Animator>();
+        col = GetComponent<Collider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void open()
     {
         anim.SetBool("doorOpen", true);
+        col.enabled = false;
+    }
+    public void close()
+    {
+        anim.SetBool("doorOpen", false);
+        col.enabled = true;
     }
 }
