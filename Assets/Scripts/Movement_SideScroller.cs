@@ -73,6 +73,9 @@ public class Movement_SideScroller : MonoBehaviour
                 Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"))
                 ||
                 Physics2D.Raycast(transform.position - new Vector3(0.5f, transform.localScale.y / 2, 0),
+                    Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"))
+                ||
+                Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y / 2, 0),
                     Vector2.down, 0.3f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Rko"));
             if (_wasGrounded)
             {

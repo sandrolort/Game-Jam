@@ -718,8 +718,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4331657920568090111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7199998, y: -3.79, z: -0.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.7199998, y: -5.64, z: -0.25}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3663084137501171532}
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   Smoothness: 0.2
-  JumpForce: 7
+  JumpForce: 10
   StartSmoke: {fileID: 3552966319576228374, guid: 340b14422545e8348bed0befedb9f564, type: 3}
   RunningSoundVolume: 0.2
   JumpSound: {fileID: 8300000, guid: 050c176ead67d9e48878b70fdd481df4, type: 3}
@@ -1336,8 +1336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 4331657920568090111}
-  Smoothness: 0.006
-  CameraSpeed: 2
+  Smoothness: 0.01
+  CameraSpeed: 4
   CameraBounds: {x: -1, y: 3}
 --- !u!1 &4331657921174457392
 GameObject:
