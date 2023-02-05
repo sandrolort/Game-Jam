@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ public class TextHandler : MonoBehaviour
 
     private void Start()
     {
+        string destination = Application.persistentDataPath + "/PuzzleComplete" + 0;
+        FileStream file;
+ 
+        if(File.Exists(destination)) File.Delete(destination);
+        
         InvokeRepeating("FixedUpdateCustom", 0, 0.1f);
     }
 

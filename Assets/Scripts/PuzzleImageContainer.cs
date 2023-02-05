@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.IsolatedStorage;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +11,7 @@ public class PuzzleImageContainer : MonoBehaviour
     [SerializeField] private Transform[] pictures;
     public static bool youWin;
     public static int Progress;
+    public GameObject puzzleComplete;
     public int id;
     
     public UnityEvent OnWin;
@@ -28,7 +30,8 @@ public class PuzzleImageContainer : MonoBehaviour
         {
             youWin = true;
             print("you won!!");
-            PuzzleChecker.isPuzzleComplete[id] = true;
+            
+            
             OnWin.Invoke();
             Progress = 16;
             this.enabled = false;
