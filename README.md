@@ -15,6 +15,7 @@ https://rvros.itch.io/animated-pixel-hero
 
 Programmers/Game engine work: Sandro Lortkipanidze (General), Temur Kuliashvili (Puzzles)
 Art: Ani Kokolishvili
+Audio: Luka
 
 A few others worked on Ideas, Audio, and Story parts, but unfortunately I don't have their full names.
 
